@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realitas</title>
+    <style>
+        @import url('https://googleapis.com');
+        body { background-color: #ffc8dd; font-family: 'Montserrat', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        h1 { color: #590d22; font-size: 26px; text-align: center; margin-bottom: 40px; padding: 0 20px; }
+        .buttons { position: relative; width: 100%; height: 150px; display: flex; justify-content: center; align-items: center; gap: 20px; }
+        button { background-color: #ffb3c1; border: 3px solid #e195a4; border-radius: 4px; color: black; font-family: 'Montserrat', sans-serif; cursor: pointer; font-weight: bold; }
+        #btn-sim { font-size: 20px; padding: 10px 30px; }
+        #btn-nao { font-size: 14px; padding: 6px 15px; position: absolute; transition: all 0.1s ease; }
+    </style>
+</head>
+<body>
+    <h1>Quer namorar comigo?</h1>
+    <div class="buttons">
+        <button id="btn-sim" onclick="aceitou()">Sim</button>
+        <button id="btn-nao" onmouseover="fugir()" onclick="fugir()" ontouchstart="fugir()">Não</button>
+    </div>
+    <script>
+        function fugir() {
+            const btnNao = document.getElementById('btn-nao');
+            const larguraTela = window.innerWidth - btnNao.offsetWidth - 20;
+            const alturaTela = window.innerHeight - btnNao.offsetHeight - 20;
+            const aleatorioX = Math.max(10, Math.floor(Math.random() * larguraTela));
+            const aleatorioY = Math.max(10, Math.floor(Math.random() * alturaTela));
+            btnNao.style.position = 'fixed';
+            btnNao.style.left = aleatorioX + 'px';
+            btnNao.style.top = aleatorioY + 'px';
+        }
+        function aceitou() {
+            alert("Meu amor, Eu te amo meu amor, lanchinho mais tarde?");
+        }
+    </script>
+</body>
+</html>
